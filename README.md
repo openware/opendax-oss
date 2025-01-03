@@ -58,13 +58,29 @@ cd opendax
 rvm install .
 ```
 
-### 3. Bundle install dependencies
-
+if you get any error during the installation, try the following:
 ```bash
-bundle install
-rake -T # To see if ruby and lib works
+rvm cleanup all
 ```
 
+##### 2.3.4 Install Ruby
+Get the asdf plugin
+```bash
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+echo '. "$HOME/.asdf/asdf.sh"' >> ~/.bashrc
+echo '. "$HOME/.asdf/completions/asdf.bash"' >> ~/.bashrc
+asdf plugin add ruby
+asdf install ruby 2.6.6
+asdf global ruby 2.6.6
+```
+Now type `ruby -v` and you should see the version 2.6.6
+
+### 3. Install Bundler
+```bash
+gem install bundler:2.1.4
+bundle install
+rake -T 
+```
 Using `rake -T` you can see all available commands, and can create new ones in `lib/tasks`
 
 ### 4. Run everything
